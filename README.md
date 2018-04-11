@@ -1,2 +1,0 @@
-# maersklinecms
-DDAC Assignment
