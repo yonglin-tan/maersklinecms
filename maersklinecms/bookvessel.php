@@ -83,7 +83,8 @@
 	<?php
 	
 		$currentagent = $_SESSION['u_id'];
-		$sql = "SELECT * FROM vessel where vessel_spaceavailable > 0 AND vessel_status = 'Available';";
+		$sql = "SELECT ss_id, ss_route, ss_departure, ss_arrival, ss_vesselid, vessel_name, vessel_spaceavailable FROM shippingschedule INNER JOIN vessel ON 
+		shippingschedule.ss_vesselid = vessel.vessel_id where vessel.vessel_spaceavailable > 0 AND vessel.vessel_status = 'Available';";
 		$result = mysqli_query($conn,$sql);
 		$resultCheck = mysqli_num_rows($result);
 		
