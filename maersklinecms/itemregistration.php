@@ -81,13 +81,15 @@
 				<option value="" disabled selected>Select Booking ID</option>';
 				<?php
 					$currentagent = $_SESSION['u_id'];
-					$sql = "SELECT booking_id FROM bookings where booked_by = '$currentagent';";
+					$sql = "SELECT booking_id, ss_id FROM bookings where booked_by = '$currentagent';";
 					$result = mysqli_query($conn,$sql);
 					$resultCheck = mysqli_num_rows($result);
 					while($row = mysqli_fetch_assoc($result)) {
 					echo '<option value="'.$row['booking_id'].'">'.$row['booking_id'].'</option>';
 					}
+					$row = mysqli_fetch_assoc($result);
 					echo'<input type="hidden" name="registered_by" value='.$currentagent.'>';
+					echo'<input type="hidden" name="ss_id" value='.$row['ss_id'].'>';
 				?>
 				</select><br><br>
 				
