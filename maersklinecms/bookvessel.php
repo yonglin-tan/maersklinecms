@@ -135,13 +135,14 @@
 		
 		if($resultCheck > 0) {
 			echo "<table width=50%; align=center; cellpadding=15>";
-			echo "<tr><th>Booking ID</th><th>Vessel ID</th><th>Booked Space</th><th>Customer ID</th></tr>";
+			echo "<tr><th>Booking ID</th><th>Vessel ID</th><th>Booked Space</th><th>Customer ID</th><th>Schedule ID</th></tr>";
 			while($row = mysqli_fetch_assoc($result)) {
 				echo "<tr>
 				<td>  {$row['booking_id']}</td>
 				<td>  {$row['vessel_id']}</td>
 				<td>  {$row['booked_space']}</td>
 				<td>  {$row['user_id']}</td>
+				<td>  {$row['ss_id']}</td>
 				</tr>";
 				
 			
