@@ -89,7 +89,7 @@
 		$resultCheck = mysqli_num_rows($result);
 		
 		if($resultCheck > 0) {
-			echo "<table width=80%; align=center; cellpadding=10>";
+			echo "<table width=80%; align=center>";
 			echo "<tr><th >Schedule ID</th><th>Vessel ID</th><th>Departure</th><th>Arrival</th><th>Space Available</th><th>Booking Space</th><th>Customer ID</th></tr>";
 			while($row = mysqli_fetch_assoc($result)) {
 				echo'
