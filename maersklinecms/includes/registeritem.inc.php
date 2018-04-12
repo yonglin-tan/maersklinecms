@@ -10,7 +10,6 @@ if (isset($_POST['submit'])){
 	$itemweight = mysqli_real_escape_string($conn, $_POST['item_weight']);
 	$itemremarks = mysqli_real_escape_string($conn, $_POST['item_remarks']);
 	$currentagent = mysqli_real_escape_string($conn, $_POST['registered_by']);
-	$ss_id = mysqli_real_escape_string($conn, $_POST['ss_id']);
 	
 	//Error handlers
 	//Check for empty fields
@@ -23,7 +22,7 @@ if (isset($_POST['submit'])){
 			header("Location: ../itemregistration.php?register=invalid");
 			exit();
 		}else {
-			$sql = "INSERT INTO items (booking_id, item_name, item_desc, item_weight, item_remarks, registered_by, ss_id) VALUES ('$bookingid', '$itemname', '$itemdesc', '$itemweight', '$itemremarks', '$currentagent', '$ss_id');";
+			$sql = "INSERT INTO items (booking_id, item_name, item_desc, item_weight, item_remarks, registered_by) VALUES ('$bookingid', '$itemname', '$itemdesc', '$itemweight', '$itemremarks', '$currentagent');";
 			mysqli_query($conn, $sql);
 			header("Location: ../itemregistration.php?register=success");
 			exit();
