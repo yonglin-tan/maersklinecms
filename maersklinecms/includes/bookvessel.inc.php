@@ -26,7 +26,7 @@ if (empty($vid || $spacebooked || $customerid)){
 			}else{
 				$vspace = $vspace - $spacebooked;
 				$sql = "UPDATE vessel SET vessel_spaceavailable= '$vspace' WHERE vessel_id = '$ssvid';";
-				$sql2 = "INSERT INTO bookings (ss_id, vessel_id, booked_space, user_id, booked_by) VALUES ('$ssid', '$vid', '$spacebooked', '$customerid', '$currentagent');";
+				$sql2 = "INSERT INTO bookings (ss_id, vessel_id, booked_space, user_id, booked_by) VALUES ('$ssid', '$ssvid', '$spacebooked', '$customerid', '$currentagent');";
 				mysqli_query($conn, $sql);
 				mysqli_query($conn, $sql2);
 					header("Location: ../bookvessel.php?edit=success");
