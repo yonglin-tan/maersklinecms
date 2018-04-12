@@ -78,7 +78,7 @@
 <br/>
 
 <div class="whitebg" >
-<h1>Current Vessels</h1>
+<h1>Current Vessels Available based on Schedule</h1>
 	
 	<?php
 	
@@ -89,16 +89,17 @@
 		
 		if($resultCheck > 0) {
 			echo "<table width=80%; align=center; cellpadding=10>";
-			echo "<tr><th>Vessel ID</th><th>Vessel Name</th><th>Vessel Space Available</th><th>Vessel Status</th><th>Booking Space</th><th>Customer ID</th></tr>";
+			echo "<tr><th >Schedule ID</th><th>Vessel ID</th><th>Departure</th><th>Arrival</th><th>Space Available</th><th>Booking Space</th><th>Customer ID</th></tr>";
 			while($row = mysqli_fetch_assoc($result)) {
 				echo'
 				<form action="includes/bookvessel.inc.php" method="POST">
 				<tr>
 				<input type="hidden" name="booked_by" value='.$currentagent.'>
-				<td><input type="text" name="vid" value="'.$row['vessel_id'].'" readonly>  </td>
-				<td><input type="text" name="vname" value="'.$row['vessel_name'].'" readonly></td>
+				<td><input type="text" name="ssid" value="'.$row['ss_id'].'" readonly>  </td>
+				<td><input type="text" name="ssvid" value="'.$row['ss_vesselid'].'" readonly></td>
+				<td><input type="text" name="ssdept" value="'.$row['ss_departure'].'" readonly></td>
+				<td><input type="text" name="ssarrival" value="'.$row['ss_arrival'].'" readonly></td>
 				<td><input type="text" name="vspace" value="'.$row['vessel_spaceavailable'].'" readonly></td>
-				<td><input type="text" name="vstatus" value="'.$row['vessel_status'].'" readonly></td>
 				<td><input type="text" name="booked_space" placeholder="Num of days to book" ></td>
 				<td><select type="text" name="user_id" required>
 				<option value="" disabled selected>Select Customer ID</option>';
@@ -110,7 +111,7 @@
 					}
 
 				echo'</select></td><br><br>
-				<td><button class="button button2" type="submit" name="submit">Place Booking</button></td>
+				<td><button class="button button2" type="submit" name="submit">Book</button></td>
 				</tr>
 				</form>';
 				
